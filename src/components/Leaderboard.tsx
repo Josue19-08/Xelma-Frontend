@@ -84,7 +84,10 @@ const Leaderboard = () => {
                 #1
               </div>
               {/* Crown Icon or Glow */}
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-4xl animate-bounce drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]">
+              <div
+                className="absolute -top-8 left-1/2 -translate-x-1/2 text-4xl animate-bounce drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"
+                aria-hidden="true"
+              >
                 👑
               </div>
             </div>
