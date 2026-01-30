@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/ThemeProvider";
-import { Toaster } from "react-hot-toast";
 import "./App.css";
 import Header from "./components/Header";
 import NewsRibbon from "./components/NewsRibbon";
@@ -12,8 +11,6 @@ import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [showNewsRibbon, setShowNewsRibbon] = useState(true);
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
 
   return (
     <ThemeProvider>
@@ -21,10 +18,7 @@ function App() {
       <RouteProgressBar />
       <Header />
       {showNewsRibbon && (
-        <NewsRibbon
-          onClose={() => setShowNewsRibbon(false)}
-          hasSidebar={isHomePage}
-        />
+        <NewsRibbon onClose={() => setShowNewsRibbon(false)} />
       )}
       <main
         className={`px-4 lg:px-14 min-h-screen bg-[#FAFAFA] dark:bg-gray-900 transition-[padding] ${
@@ -32,7 +26,12 @@ function App() {
         }`}
       >
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route
+            path="/"
+            element={
+              <Dashboard showNewsRibbon={showNewsRibbon} />
+            }
+          />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route
             path="/learn"

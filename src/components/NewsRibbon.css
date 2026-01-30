@@ -4,7 +4,7 @@
   top: 80px; /* Below header (h-20 = 5rem = 80px) */
   left: 0;
   right: 0;
-  z-index: 15;
+  z-index: 15; /* Between header and content; sidebar starts below ribbon */
   background: linear-gradient(90deg, #2c4bfd 0%, #6366f1 100%);
   color: white;
   padding: 10px 16px;
@@ -13,14 +13,6 @@
   line-height: 1.4;
   box-shadow: 0 2px 8px rgba(44, 75, 253, 0.2);
   overflow: hidden;
-  transition: left 0.3s ease;
-}
-
-/* On md+ screens, account for sidebar width when present (w-80 = 320px) */
-@media (min-width: 768px) {
-  .news-ribbon--with-sidebar {
-    left: 320px; /* Start after sidebar */
-  }
 }
 
 @media (min-width: 1024px) {

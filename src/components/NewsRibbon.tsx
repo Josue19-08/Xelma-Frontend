@@ -9,10 +9,9 @@ const newsItems = [
 
 export interface NewsRibbonProps {
   onClose?: () => void;
-  hasSidebar?: boolean;
 }
 
-export function NewsRibbon({ onClose, hasSidebar = false }: NewsRibbonProps) {
+export function NewsRibbon({ onClose }: NewsRibbonProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -28,7 +27,7 @@ export function NewsRibbon({ onClose, hasSidebar = false }: NewsRibbonProps) {
 
   return (
     <div
-      className={`news-ribbon ${hasSidebar ? "news-ribbon--with-sidebar" : ""}`}
+      className="news-ribbon"
       role="region"
       aria-label="News updates"
     >
